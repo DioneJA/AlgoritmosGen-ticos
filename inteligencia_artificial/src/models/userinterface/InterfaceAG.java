@@ -4,9 +4,6 @@
  */
 package models.userinterface;
 
-import javax.swing.JOptionPane;
-import models.entities.AG;
-
 /**
  *
  * @author 202011000030

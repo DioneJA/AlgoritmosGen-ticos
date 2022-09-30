@@ -5,7 +5,8 @@
 package models.userinterface;
 
 import javax.swing.JOptionPane;
-import models.entities.AG;
+import models.entities.Graph;
+import models.entities.InitialPopulation;
 
 /**
  *
@@ -13,9 +14,7 @@ import models.entities.AG;
  */
 public class InterfaceRange extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Interface
-     */
+    static int range = 0;
     public InterfaceRange() {
         initComponents();
     }
@@ -185,7 +184,7 @@ public class InterfaceRange extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        int range = 0;
+        
         if (jRadioButton1.isSelected()) {
             range = 10;
         } else if (jRadioButton2.isSelected()) {
@@ -198,8 +197,11 @@ public class InterfaceRange extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "ERRO! Nenhuma opção selecionada! ");
             return;
         }
-        AG ag = new AG(range);
-        ag.geraNumMat();
+        Graph ag = new Graph(range);
+        ag.genNumGraph();
+        InitialPopulation initialPopulation = new InitialPopulation(range);
+        initialPopulation.genInitalPopulation();
+        initialPopulation.getResult();
         InterfaceAG tela = new InterfaceAG();
         tela.setVisible(true);
         tela.setSize(628, 373);
