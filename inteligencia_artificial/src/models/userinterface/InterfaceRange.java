@@ -5,8 +5,9 @@
 package models.userinterface;
 
 import javax.swing.JOptionPane;
+import models.entities.GeneticAlgorithm;
 import models.entities.Graph;
-import models.entities.InitialPopulation;
+
 
 /**
  *
@@ -199,9 +200,15 @@ public class InterfaceRange extends javax.swing.JFrame {
         }
         Graph ag = new Graph(range);
         ag.genNumGraph();
-        InitialPopulation initialPopulation = new InitialPopulation(range);
+        ag.printGraph();
+        
+        GeneticAlgorithm initialPopulation = new GeneticAlgorithm(range,ag.getGraph());
         initialPopulation.genInitalPopulation();
-        initialPopulation.getResult();
+        initialPopulation.printResult();
+        initialPopulation.fitness();
+        initialPopulation.printFit();
+        initialPopulation.RoulletGeneration();
+        
         InterfaceAG tela = new InterfaceAG();
         tela.setVisible(true);
         tela.setSize(628, 373);
